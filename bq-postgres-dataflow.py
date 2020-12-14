@@ -19,7 +19,7 @@
 
 Example based on https://github.com/apache/beam/blob/master/sdks/python/apache_beam/examples/cookbook/bigquery_tornadoes.py
 
-python bq-postgres-dataflow.py --temp_location gs://magnusfagertun-test --project magnusfagertun --region europe-west1 --runner DataflowRunner --setup_file beam-nuggets/dist/beam-nuggets-0.16.0.tar.gz
+python bq-postgres-dataflow.py --temp_location gs://magnusfagertun-test --project magnusfagertun --region europe-west1 --runner DataflowRunner --setup_file beam-nuggets/dist/beam-nuggets-0.16.0.tar.gz --max_num_workers 20
 """
 
 from __future__ import absolute_import
