@@ -1,0 +1,3 @@
+[submodule "beam-nuggets"]
+	path = beam-nuggets
+	url = https://github.com/mohaseeb/beam-nuggets
