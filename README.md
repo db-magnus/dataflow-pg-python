@@ -45,11 +45,11 @@ python local_postgresql.py
 ```
 **bq-postgres.py** will extract data from BigQuery, load into local postgresql database. Using localrunner
 ```
-python bq-postgres.py --temp_location gs://magnusfagertun-test --project magnusfagertun
+python bq-postgres.py --temp_location gs://PROJECT_ID-test --project PROJECT_ID
 ```
 
 **bq-postgres-dataflow.py** will run on dataflow, using private ip connection to Cloud SQL. Include full path to the setup.py file, this will upload the tarball of our modified beam-nuggets.
 ```
-python bq-postgres-dataflow.py --temp_location gs://magnusfagertun-test --project magnusfagertun --region europe-west1 --runner DataflowRunner --setup_file /Users/magnusfagertun/src/dataflow-python/beam-nuggets/setup.py --max_num_workers 20
+python bq-postgres-dataflow.py --temp_location gs://PROJECT_ID-test --project PROJECT_ID --region europe-west1 --runner DataflowRunner --setup_file /Users/username/src/dataflow-python/beam-nuggets/setup.py --max_num_workers 20
 
 ```

@@ -63,7 +63,7 @@ def run(argv=None):
      host='localhost',
      port=5432,
      username='postgres',
-     password='somePassword',
+     password='pwd',
      database='postgres'
 
   )

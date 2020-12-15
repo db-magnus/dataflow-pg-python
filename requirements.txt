@@ -1,6 +1,6 @@
 apache-beam==2.25.0
 avro-python3==1.9.2.1
-beam-nuggets @ file:///Users/magnusfagertun/src/dataflow-python/beam-nuggets
+beam-nuggets @ file:///Users/PROJECT_ID/src/dataflow-python/beam-nuggets
 cachetools==4.1.1
 certifi==2020.12.5
 chardet==3.0.4

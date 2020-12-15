@@ -19,7 +19,7 @@
 
 Example based on https://github.com/apache/beam/blob/master/sdks/python/apache_beam/examples/cookbook/bigquery_tornadoes.py
 
-python bq-postgres-dataflow.py --temp_location gs://magnusfagertun-test --project magnusfagertun --region europe-west1 --runner DataflowRunner --setup_file beam-nuggets/dist/beam-nuggets-0.16.0.tar.gz --max_num_workers 20
+python bq-postgres-dataflow.py --temp_location gs://PROJECT_ID-test --project PROJECT_ID --region europe-west1 --runner DataflowRunner --setup_file beam-nuggets/dist/beam-nuggets-0.16.0.tar.gz --max_num_workers 20
 """
 
 from __future__ import absolute_import
@@ -56,7 +56,7 @@ def run(argv=None):
   parser = argparse.ArgumentParser()
   parser.add_argument(
       '--input',
-      default='magnusfagertun:demos.small_teams',
+      default='PROJECT_ID:demos.small_teams',
       help=(
           'Input BigQuery table to process specified as: '
           'PROJECT:DATASET.TABLE or DATASET.TABLE.'))
@@ -78,10 +78,10 @@ def run(argv=None):
 
   source_config = relational_db.SourceConfiguration(
      drivername='postgresql+pg8000',
-     host='10.42.64.3',
+     host='10.42.64.3', # private IP
      port=5432,
      username='postgres',
-     password='rsJECqf3M5v9BzpD',
+     password='pwd',
      database='postgres'
   )
 
@@ -102,7 +102,7 @@ def run(argv=None):
     # Read the table rows into a PCollection.
     rows = p | 'read' >> beam.io.ReadFromBigQuery(
             query="""
-            SELECT id, category FROM `magnusfagertun.demos.small_teams` LIMIT 150000 """,
+            SELECT id, category FROM `PROJECT_ID.demos.small_teams` LIMIT 150000 """,
             use_standard_sql=True)
     counted= count_categories(rows)
 

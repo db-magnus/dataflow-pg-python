@@ -23,7 +23,7 @@ Reads data from BQ, writes to two tables in PostgreSQL.
 
 example based on https://github.com/apache/beam/blob/master/sdks/python/apache_beam/examples/cookbook/bigquery_tornadoes.py
 
-python bq-postgres.py --temp_location gs://magnusfagertun-test --project magnusfagertun
+python bq-postgres.py --temp_location gs://PROJECT_ID-test --project PROJECT_ID
 
 """
 
@@ -60,7 +60,7 @@ def run(argv=None):
   parser = argparse.ArgumentParser()
   parser.add_argument(
       '--input',
-      default='magnusfagertun:demos.small_teams',
+      default='PROJECT_ID:demos.small_teams',
       help=(
           'Input BigQuery table to process specified as: '
           'PROJECT:DATASET.TABLE or DATASET.TABLE.'))
@@ -85,7 +85,7 @@ def run(argv=None):
      host='localhost',
      port=5432,
      username='postgres',
-     password='somePassword',
+     password='pwd',
      database='postgres'
 
   )
@@ -107,7 +107,7 @@ def run(argv=None):
     # Read the table rows into a PCollection.
     rows = p | 'read' >> beam.io.ReadFromBigQuery(
             query="""
-            SELECT id, category FROM `magnusfagertun.demos.small_teams` limit 1500""",
+            SELECT id, category FROM `PROJECT_ID.demos.small_teams` limit 1500""",
             use_standard_sql=True)
     counted= count_categories(rows)
 
