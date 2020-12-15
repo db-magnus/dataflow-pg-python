@@ -19,6 +19,8 @@
 
 Writing table to local postgresql
 
+
+
 """
 
 from __future__ import absolute_import
@@ -76,7 +78,7 @@ def run(argv=None):
 
 
   table_config = relational_db.TableConfiguration(
-    name='teams',
+    name='pgtest',
     create_if_missing=True,  # automatically create the table if not there
     primary_key_columns=['num']  # and use 'num' column as primary key
 )

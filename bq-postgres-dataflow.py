@@ -102,7 +102,7 @@ def run(argv=None):
     # Read the table rows into a PCollection.
     rows = p | 'read' >> beam.io.ReadFromBigQuery(
             query="""
-            SELECT id, category FROM `magnusfagertun.demos.teams_full` """,
+            SELECT id, category FROM `magnusfagertun.demos.small_teams` LIMIT 150000 """,
             use_standard_sql=True)
     counted= count_categories(rows)
 
@@ -117,7 +117,6 @@ def run(argv=None):
             table_config=table_config_category   )
 
     # Run the pipeline (all operations are deferred until run() is called).
-
 
 if __name__ == '__main__':
   logging.getLogger().setLevel(logging.INFO)
