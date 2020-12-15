@@ -6,7 +6,7 @@ Based on [this](https://github.com/apache/beam/blob/master/sdks/python/apache_be
 
 Setup python3 environment using virtualenv, and make sure gcloud is authenticated.
 
-###Dependencies
+### Dependencies
 I got some error messages from sql alchemy:
 ```
 TypeError: expected bytes, str found [while running 'Writing to DB/ParDo(_WriteToRelationalDBFn)']
